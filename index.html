@@ -1,11 +1,11 @@
-<!DOCTYPE html><html><head><title>bqn-tetris</title><meta charset="utf-8"/>
+<!DOCTYPE html><html><head><title>bqn-tetris</title><meta charset="utf-8"/><link href="prism.css" rel="stylesheet"/>
 <style>*{color:#fff;background-color:#000;text-align:left;}pre{font-family:BQN386,monospace;margin:1em}body{display:flex;overflow:hidden}
 @font-face{font-family: BQN386;src:url(BQN386.subset.woff2) format('woff2');}</style>
-<script src="bqn.js"></script><script>raf=window.requestAnimationFrame.bind(window);pd=e=>e.preventDefault();
-fx=10;fy=20;go=(t,f)=>{for(let i=0;i<t;++i)f(i)};goa=(a,f)=>a.forEach(f);window.onload=async()=>{
+<script src="bqn.js"></script><script src="prism.js" data-manual></script><script>raf=window.requestAnimationFrame.bind(window);pd=e=>e.preventDefault();
+fx=10;fy=20;go=(t,f)=>{for(let i=0;i<t;++i)f(i)};goa=(a,f)=>a.forEach(f);p=window.Prism;window.onload=async()=>{
 x=c.getContext('2d');fs=s=>x.fillStyle=s;fr=x.fillRect.bind(x);b=40;w=c.width=fx*b;h=c.height=fy*b;
 col={0:'#333',1:'blue'};d=(f)=>{goa(f,(e,i)=>{fs(col[e]);fr(i*b%w,Math.floor(i*b/w)*b,b-1,b-1)})};
-t=src.innerHTML=await(await fetch("tetris.bqn")).text();g=run.apply(null,compile(t));ns=nsget(g);kh=ns('kh')
+t=await(await fetch("tetris.bqn")).text();g=run.apply(null,compile(t));src.innerHTML=p.highlight(t,p.languages.bqn,'bqn');ns=nsget(g);kh=ns('kh')
 addEventListener('keydown',e=>{kc=e.keyCode;k=[38,37,39,40].map(c=>c==kc?1:0);if(k.includes(1))pd(e);kh(list([-k[0],k[1]*-1+k[2],k[3]]))});
 tr=40;te=0;dost=()=>{d(ns('gamestate')());if(!te--){ns('step')(ns('game'));te=tr};raf(dost)};raf(dost);
-}</script></head><body><canvas id="c"></canvas><pre id="src"></pre></body></html>
+}</script></head><body><canvas id="c"></canvas><pre id="src" class="lang-bqn"/></body></html>
