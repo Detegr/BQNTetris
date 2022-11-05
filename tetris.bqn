@@ -2,7 +2,7 @@
 ps ← [1‿1‿1‿1⋄0‿0‿0‿0]‿[1‿0‿0⋄1‿1‿1]‿[0‿0‿1⋄1‿1‿1]‿[1‿1⋄1‿1]‿[0‿1‿1⋄1‿1‿0]‿[1‿1‿0⋄0‿1‿1]‿[0‿1‿0⋄1‿1‿1]
 
 x ← y ← r ← 0                          # x, y, rotation
-sz ← 18‿10                             # Field size
+sz ← 20‿10                             # Field size
 pcs ← sz⥊0                             # Placed pieces
 pc ← •rand.Range ≠ps                   # Current piece index
 P ← {sz↑⍉∘⌽⍟(4|𝕨) 𝕩⊑ps}                # Field with piece index 𝕩 placed to 0,0, rotated 𝕨 times to left

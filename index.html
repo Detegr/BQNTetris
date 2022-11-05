@@ -2,7 +2,7 @@
 <style>*{color:#fff;background-color:#000;text-align:left;}pre{float:right;font-family:BQN386,monospace;}
 @font-face{font-family: BQN386;src:url(BQN386.subset.woff2) format('woff2');}</style>
 <script src="bqn.js"></script><script>raf=window.requestAnimationFrame.bind(window);pd=e=>e.preventDefault();
-fx=10;fy=18;go=(t,f)=>{for(let i=0;i<t;++i)f(i)};goa=(a,f)=>a.forEach(f);window.onload=async()=>{
+fx=10;fy=20;go=(t,f)=>{for(let i=0;i<t;++i)f(i)};goa=(a,f)=>a.forEach(f);window.onload=async()=>{
 x=c.getContext('2d');fs=s=>x.fillStyle=s;fr=x.fillRect.bind(x);b=40;w=c.width=fx*b;h=c.height=fy*b;
 col={0:'#333',1:'blue'};d=(f)=>{goa(f,(e,i)=>{fs(col[e]);fr(i*b%w,Math.floor(i*b/w)*b,b-1,b-1)})};
 t=src.innerHTML=await(await fetch("tetris.bqn")).text();g=run.apply(null,compile(t));ns=nsget(g);kh=ns('kh')
