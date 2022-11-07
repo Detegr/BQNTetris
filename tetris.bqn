@@ -16,7 +16,7 @@ Init ← {𝕊:                                   # Initialize game state for ne
   pcs+↩g ⋄ pts+↩+´FL pcs ⋄ pcs RL↩
   pc↩•rand.Range ≠pieces
 }
-Ok ← 4⊸=·+´+˝∘× ∧ {¬× +´+˝ 2⊸≤ pcs+○×𝕩}     # Check if game state 𝕩 is valid
+Ok ← 4⊸=·+´+˝∘× ∧ {¬× +´+˝ 2⊸≤ pcs+○×𝕩}      # Check if game state 𝕩 is valid
 Rst ⇐ {𝕊: Init@ ⋄ Refresh@ ⋄ pcs↩sz⥊0}       # Reset game state (new game)
 End ⇐ {𝕊: ¬Ok g}                             # Check if the game is over
 Drop ← {𝕊: Ok (y+𝕩)‿x M r P pc ? 𝕊𝕩+1 ; 𝕩-1} # Return the amount of squares needed to drop the piece to the bottom
