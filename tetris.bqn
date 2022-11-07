@@ -1,5 +1,5 @@
 pieces ← [1‿1‿1‿1⋄0‿0‿0‿0]‿[1‿0‿0⋄1‿1‿1]‿[0‿0‿1⋄1‿1‿1]‿[1‿1⋄1‿1]‿[0‿1‿1⋄1‿1‿0]‿[1‿1‿0⋄0‿1‿1]‿[0‿1‿0⋄1‿1‿1]
-x ← y ← r ← 0                                # x, y, rotation
+x ← 3 ⋄ y ← r ← 0                            # x, y, rotation
 sz ← 20‿10 ⋄ pcs ← sz⥊0                      # Field size, placed pieces
 pc ← •rand.Range ≠pieces                     # Current piece index
 P ← {sz↑⍉∘⌽⍟(4|𝕨) (𝕩+1)×𝕩⊑pieces}            # Field with piece index 𝕩 placed to 0,0, rotated 𝕨 times to left
@@ -12,7 +12,7 @@ FL ← ×∧˝˘                                    # Full lines
 RL ← ∾·0⊸×⌾⊑·¬∘FL⊸⊔⊢                         # Remove full lines and shift the field down
 Refresh ← {𝕊: g↩y‿x M r P pc}                # Refresh game state to current position
 Init ← {𝕊:                                   # Initialize game state for new piece
-  x↩y↩r↩0
+  y↩r↩0 ⋄ x↩3
   pcs+↩g ⋄ pcs RL↩
   pc↩•rand.Range ≠pieces
 }
