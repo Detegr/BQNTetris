@@ -12,7 +12,7 @@ col={0:'#333',1:'#00f0f0',2:'#0000f0',3:'#f0a000',4:'#f0f000',5:'#00f000',6:'#f0
 clr=()=>{fs('#000');fr(0,0,w,h)};d=(f)=>{goa(f,(e,i)=>{fs(col[e]);fr(i*b%w,flr(i*b/w)*b,b-1,b-1)})};
 dt=(txt,y)=>ft(txt,w/2-mt(txt).width/2,h/2+y);over=()=>{fs('#fff');fnt(0);dt('Score: '+pts,0);fnt(1);dt('Press enter to restart',40)}
 t=await(await fetch("tetris.bqn")).text();g=run.apply(null,compile(t));src.innerHTML=p.highlight(t,p.languages.bqn,'bqn');
-ns=nsget(g);kh=ns('kh');gs=ns('gamestate');st=ns('step');gm=ns('game');end=ns('end');rst=()=>{ns('rst')();ok=1;spd=750;clr();raf(dost)}
+ns=nsget(g);kh=ns('kh');gs=ns('gamestate');st=ns('step');gm=ns('game');end=ns('end');rst=()=>{ns('rst')();ok=1;spd=750;clr();pts=0;raf(dost)}
 dokh=(k,e)=>{if(e&&k.includes(1))pd(e);kh(list([-k[0],k[1]*-1+k[2],k[3],k[4]]))}
 drp=0;ael('keydown',e=>{kc=e.keyCode;if(!ok&&kc==13)return rst();k=[38,37,39,40,32].map(c=>c==kc?1:0);dokh(k,e);if(k[4])drp=1;});
 ael('touchstart',e=>{e=e.touches[0];x=e.clientX;y=e.clientY;u=y<=h/4;l=y>h/4*3;dokh([+u,+(!u&&!l&&x<w/2),+(!u&&!l&&x>=w/2),0,+l])})
